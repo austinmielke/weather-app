@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+    <div className="container prose mx-auto min-h-screen px-4">
+      <header>
+        <h1 className="pt-4 text-center">Weather App</h1>
+      </header>
+      <form className="join join-vertical w-full md:join-horizontal">
+        <input
+          className="input join-item input-bordered input-secondary md:flex-1"
+          name="search"
+          placeholder="Enter city name"
+        />
+        <select className="select join-item select-bordered select-secondary">
+          <option selected>City</option>
+          <option>Zip Code</option>
+        </select>
+        <button className="btn btn-primary join-item">Search</button>
+      </form>
+      <section className="text-center">
+        <img
+          className="h-30 mx-auto -mb-4 mt-0"
+          src="https://openweathermap.org/img/wn/10d@2x.png"
+        />
+        <h2 className="mt-0">Omaha</h2>
+        <p className="mb-6 text-4xl text-secondary">74&deg;F</p>
+        <p className="italic">Cloudy</p>
+        <p className="-mt-4 text-secondary">
+          <span className="font-bold text-base-content">H:</span> 74&deg;F{' '}
+          <span className="font-bold text-base-content">|</span>{' '}
+          <span className="font-bold text-base-content">L:</span> 61&deg;F
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      </section>
+    </div>
   )
 }
 
