@@ -41,7 +41,7 @@ const fetchLocation = async ({ query, type }) => {
 
 const fetchWeather = async ({ lat, lon }) => {
   const generateURL = () => {
-    return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${
+    return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${
       import.meta.env.VITE_API_KEY
     }`
   }

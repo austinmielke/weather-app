@@ -3,25 +3,36 @@ const Weather = ({
   error: { locationError, weatherError },
   loading
 }) => {
-  console.log('location data:', locationData)
-  console.log('weather data:', weatherData)
-  console.log('location error:', locationError)
-  console.log('weather error:', weatherError)
+  const titleCase = (str) => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1)
+      })
+      .join(' ')
+  }
 
   if (locationData && weatherData) {
     return (
       <section className="text-center">
         <img
           className="h-30 mx-auto -mb-4 mt-0"
-          src="https://openweathermap.org/img/wn/10d@2x.png"
+          src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`}
         />
-        <h2 className="mt-0">Omaha</h2>
-        <p className="mb-6 text-4xl text-secondary">74&deg;F</p>
-        <p className="italic">Cloudy</p>
+        <h2 className="mt-0">{locationData[0].name}</h2>
+        <p className="mb-6 text-4xl text-secondary">
+          {weatherData.current.temp.toFixed(1)}&deg;F
+        </p>
+        <p className="italic">
+          {titleCase(weatherData.current.weather[0].description)}
+        </p>
         <p className="-mt-4 text-secondary">
-          <span className="font-bold text-base-content">H:</span> 74&deg;F{' '}
+          <span className="font-bold text-base-content">H:</span>{' '}
+          {weatherData.daily[0].temp.max.toFixed(1)}&deg;F{' '}
           <span className="font-bold text-base-content">|</span>{' '}
-          <span className="font-bold text-base-content">L:</span> 61&deg;F
+          <span className="font-bold text-base-content">L:</span>{' '}
+          {weatherData.daily[0].temp.min.toFixed(1)}&deg;F
         </p>
       </section>
     )
@@ -41,9 +52,11 @@ const Weather = ({
             strokeWidth="2"
           />
         </svg>
-        <span>Error!</span>
-        {locationError && <span>{locationError}</span>}
-        {weatherError && <span>{weatherError}</span>}
+        <p>
+          <span className="font-bold">Error! </span>
+          {locationError && <span>{locationError} </span>}
+          {weatherError && <span>{weatherError} </span>}
+        </p>
       </section>
     )
   } else if (loading) {

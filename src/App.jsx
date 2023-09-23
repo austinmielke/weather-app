@@ -18,6 +18,8 @@ function App() {
 
     const handleFetchData = async () => {
       setLoading(true)
+      setLocationData(null)
+      setWeatherData(null)
       setLocationError(null)
       setWeatherError(null)
 
@@ -32,10 +34,19 @@ function App() {
         }
       }
 
+      if (locationResponse.length === 0) {
+        setLocationError(
+          `Location was unable to be found from search query: "${inputSubmission.query}". If state was included in the search, please ensure it is not abbreviated.`
+        )
+        return () => {
+          ignore = true
+        }
+      }
+
       const { error: weatherError, response: weatherResponse } =
         await fetchWeather(locationResponse[0])
 
-      if (!ignore) {
+      if (!ignore || locationResponse.length === 0) {
         if (weatherError) {
           setWeatherError(weatherError.message)
         } else {
