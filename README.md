@@ -2,7 +2,7 @@
 
 A weather app created in React to test concepts learned in the ui.dev [react.gg](https://react.gg/) course.
 
-See fully functioning final product here.
+See fully functioning final product [here](https://weather-app-austinmielke.netlify.app/).
 
 ### Skills Practiced
 
