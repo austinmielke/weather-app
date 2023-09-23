@@ -36,7 +36,7 @@ function App() {
 
       if (locationResponse.length === 0) {
         setLocationError(
-          `Location was unable to be found from search query: "${inputSubmission.query}". If state was included in the search, please ensure it is not abbreviated.`
+          `Location was unable to be found from search query: "${inputSubmission.query}".`
         )
         return () => {
           ignore = true

@@ -1,15 +1,19 @@
+import { detectAndConvertStateAbbr } from './utilities'
+
 const fetchLocation = async ({ query, type }) => {
   const generateURL = () => {
     if (type === 'city') {
       const [city, state] = query
         .split(', ')
-        .map((item) => item.trim().replace(' ', '%20'))
-      return `http://api.openweathermap.org/geo/1.0/direct?q=${city},${
+        .map((item) =>
+          detectAndConvertStateAbbr(item.trim()).replace(' ', '%20')
+        )
+      return `https://api.openweathermap.org/geo/1.0/direct?q=${city},${
         state || ''
       }&limit=1&appid=${import.meta.env.VITE_API_KEY}`
     } else if (type === 'zip') {
       const zip = query
-      return `http://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${
+      return `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${
         import.meta.env.VITE_API_KEY
       }`
     }

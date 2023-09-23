@@ -32,7 +32,11 @@ const Form = ({ setInputSubmission }) => {
         className="input join-item input-bordered input-secondary md:flex-1"
         name="search"
         onChange={handleInputChange}
-        placeholder="Enter city name"
+        placeholder={
+          searchType === 'city'
+            ? 'Enter city name (e.g. Beverly Hills, CA)'
+            : 'Enter zip code (e.g. 90210)'
+        }
         value={searchInput}
       />
       <select
