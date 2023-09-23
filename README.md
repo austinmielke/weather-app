@@ -1,8 +1,24 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A weather app created in React to test concepts learned in the ui.dev [react.gg](https://react.gg/) course.
 
-Currently, two official plugins are available:
+See fully functioning final product here.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Skills Practiced
+
+- Setting up project and dev environment
+- Creating individual components
+- Utilizing event handlers
+- Managing state
+- Leveraging third party APIS
+- Debugging and testing
+- Theming
+
+### Tools Leveraged
+
+- [Vite](https://vitejs.dev/): project generation and development environment
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/): linting and code formatting
+- [Tailwind CSS](https://tailwindcss.com/) and [daisyUI](https://daisyui.com/): frontend styling, component library, and theming
+- [OpenWeather](https://openweathermap.org/api): geocoding and weather API's
+- [favicon.io](https://favicon.io/): favicon generation
+- [Netlify](https://www.netlify.com/): hosting of final product
