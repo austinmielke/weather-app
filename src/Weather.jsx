@@ -1,4 +1,13 @@
-const Weather = () => {
+const Weather = ({
+  data: { locationData, weatherData },
+  error: { locationError, weatherError },
+  loading
+}) => {
+  console.log('location data:', locationData)
+  console.log('weather data:', weatherData)
+  console.log('location error:', locationError)
+  console.log('weather error:', weatherError)
+
   return (
     <section className="text-center">
       <img
